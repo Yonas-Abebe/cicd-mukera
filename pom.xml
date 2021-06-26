@@ -36,7 +36,7 @@
 						<muleVersion>${mule.version}</muleVersion>
 						<server>AnypointServer</server>
 						<username>yoni2</username>
-			<password>Mayo7882*#*</password>
+						<password>{OM88U2ZbvTAHU/TGgdhcbXLSavYpq5JHtEYTEaH4SCo=}</password>
 						<environment>Sandbox</environment>
 						<applicationName>${appname}</applicationName>
 						<businessGroup>${business}</businessGroup>
