@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7fefef87-8649-48c1-98ef-f9a319cfb139" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="99ffa326-3e72-4550-b623-ea683702e2ee" file="configuration/local.properties" />
+	<global-property doc:name="Global Property" doc:id="a5cee02c-2534-4935-8bbe-53709631edc0" name="env" value="local" />
+	
+<db:config name="Database_Config" doc:name="Database Config" doc:id="8514153f-ab86-4972-869a-51752611c327" >
+		<db:mssql-connection host="${db.host}" instanceName="${db.instanceName}" port="${db.port}" user="${db.user}" password="${secure::db.password}" databaseName="${db.databaseName}" />
+	</db:config>
+	<flow name="cicd-mukeraFlow" doc:id="d954b651-01d5-41df-a70f-52948edb2edf" >
+		<http:listener doc:name="Listener" doc:id="baf39cbe-bea4-4664-a74d-6f1b277226f4" config-ref="HTTP_Listener_config" path="/cicd"/>
+		<db:select doc:name="Select" doc:id="7aee459e-4cde-49aa-8e11-86027939b2c7" config-ref="Database_Config">
+			<db:sql ><![CDATA[select * from [dbo].[CICD]]]></db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="555fba9f-8b94-4b5b-b320-917fdd9f26ba" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+
+</mule>
+
+
