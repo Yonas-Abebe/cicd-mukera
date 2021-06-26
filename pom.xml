@@ -30,20 +30,17 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<cloudHubDeployment>
-			
-						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${mule.version}</muleVersion>
-						<server>AnypointServer</server>
-						<username>yoni2</username>
-						<password>{OM88U2ZbvTAHU/TGgdhcbXLSavYpq5JHtEYTEaH4SCo=}</password>
-						<environment>Sandbox</environment>
-						<applicationName>${appname}</applicationName>
-						<businessGroup>${business}</businessGroup>
-						<workerType>${vCore}</workerType>
-						<workers>${workers}</workers>
-						<objectStoreV2>true</objectStoreV2>
-					</cloudHubDeployment>
+	<cloudHubDeployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+                        <muleVersion>4.3.0</muleVersion>
+                        <username>yoni2</username>
+                        <password>Mayo7882*#*</password>
+                        <applicationName>cicd-mukera</applicationName>
+                        <environment>Sandbox</environment>
+	    				 <workers>1</workers>
+                        <workerType>MICRO</workerType>
+                        <objectStoreV2>true</objectStoreV2>
+ 					</cloudHubDeployment>
 					<sharedLibraries>
 						<sharedLibrary>
 							<groupId>com.microsoft.sqlserver</groupId>
