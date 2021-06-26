@@ -31,17 +31,13 @@
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
-					
-				
-					<muleVersion>4.3.0</muleVersion>
-					<uri>http://localhost:9999/</uri>
-					<skip>false</skip>
 			
-					
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>${mule.version}</muleVersion>
 						<server>AnypointServer</server>
-						<environment>${env}</environment>
+						<username>yoni2</username>
+			<password>{3kLUDSo0+hsHqjje4d9weF/36vgiIDY02uTfkYuNwao=}</password>
+						<environment>Sandbox</environment>
 						<applicationName>${appname}</applicationName>
 						<businessGroup>${business}</businessGroup>
 						<workerType>${vCore}</workerType>
