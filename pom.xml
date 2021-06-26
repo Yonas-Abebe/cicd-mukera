@@ -32,11 +32,11 @@
 				<configuration>
 					<cloudHubDeployment>
 					
-				<agentDeployment>
+				
 					<muleVersion>4.3.0</muleVersion>
 					<uri>http://localhost:9999/</uri>
 					<skip>false</skip>
-				</agentDeployment>
+			
 					
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>${mule.version}</muleVersion>
